@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import Stub.OoooSetTimeZoneDialog;
+
 public class OoooSmartClockTest {
     OoooSmartClock oSmartClock;
     SimpleDateFormat parser;
@@ -23,7 +25,7 @@ public class OoooSmartClockTest {
 
     @Before
     public void setUp() throws Exception {
-        oSmartClock = new OoooSmartClock();
+        oSmartClock = new OoooSmartClock(new OoooSetTimeZoneDialog());
         parser = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     }
 

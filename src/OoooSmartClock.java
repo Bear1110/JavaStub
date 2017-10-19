@@ -3,12 +3,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import Stub.IOoooSetTimeZoneDialog;
+import Stub.NODATA;
 import Stub.OoooSetTimeZoneDialog;
 
 class OoooSmartClock {
     private int zoneindex = 0;
-    public OoooSmartClock(){
-        
+    IOoooSetTimeZoneDialog o;
+    public OoooSmartClock(IOoooSetTimeZoneDialog o){
+        this.o = o;
     }
     public void setTimeZone() {
          // 當這個method 被呼叫的時候會有一個 dialog 跳出來
@@ -22,8 +25,8 @@ class OoooSmartClock {
          // 如果使用者沒有選擇，則會有個 exception NODATA 從
          // OoooSetTimeZoneDialog() 丟出來
         try{
-            zoneindex = OoooSetTimeZoneDialog.OoooSetTimeZoneDialog();
-        }catch (Exception ex){
+            zoneindex = o.OoooSetTimeZoneDialog();
+        }catch (NODATA ex){
             System.out.println("User dosen't choose");
         }
     }
@@ -107,8 +110,6 @@ class OoooSmartClock {
     }
     
     public static void main(String[] args) {
-        new OoooSmartClock().getCurrentTimeStamp();
-        new OoooSmartClock().getLocalCurrentTimeStamp();
     }
 }
 
