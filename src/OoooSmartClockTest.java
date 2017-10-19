@@ -103,12 +103,11 @@ public class OoooSmartClockTest {
     }
     @Test
     public void setTimeZoneTest() {
-        oSmartClock.setTimeZone(-5);
-        assertEquals(0,oSmartClock.getTimeZone());
-        oSmartClock.setTimeZone(24);
-        assertEquals(0,oSmartClock.getTimeZone());
-        oSmartClock.setTimeZone(23);
-        assertEquals(23,oSmartClock.getTimeZone());
+        for(int i = -2 ; i < 26 ; i++){
+            int should = i < 0 || i > 23 ? oSmartClock.getTimeZone() : i; 
+            oSmartClock.setTimeZone(i);
+            assertEquals(should,oSmartClock.getTimeZone());
+        }        
     }
 
 }
